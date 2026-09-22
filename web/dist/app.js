@@ -1,4 +1,4 @@
-let cases=[];let selected="HHG-014";let filter="all";
+let cases=[];let selected=new URLSearchParams(location.search).get("case")||"HHG-014";let filter="all";
 const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const money=n=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(n);
 function visible(){const q=$("#search").value.toLowerCase();return cases.filter(x=>(filter==="all"||x.case.verdict===filter)&&[x.case_id,x.trigger.card_id,x.case.pattern].join(" ").toLowerCase().includes(q))}
