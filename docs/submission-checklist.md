@@ -12,7 +12,7 @@
 - [ ] Team size confirmed
 - [ ] TigerGraph deployment connected; case writeback provenance updated
 - [ ] Public GitHub repository created and verified
-- [ ] Demo video recorded and uploaded
+- [x] Demo video recorded and uploaded (4:34 narrated MP4)
 - [ ] Technical blog published
 - [ ] Social post(s) published
 - [ ] Google Form reviewed and submitted by lead

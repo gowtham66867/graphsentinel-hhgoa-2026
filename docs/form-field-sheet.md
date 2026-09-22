@@ -11,7 +11,7 @@ Review every field before using it. The official form does not permit resubmissi
 | Lead: Name, Email, Phone | **Needs phone confirmation**; proposed name/email: `Gowtham Ramachandra, gowtham66866@gmail.com, …` |
 | Public GitHub repo | https://github.com/gowtham66867/graphsentinel-hhgoa-2026 |
 | 20 files confirmation | Yes |
-| Demo video | **Local 4:34 MP4 complete; upload URL needed** |
+| Demo video | https://github.com/gowtham66867/graphsentinel-hhgoa-2026/releases/download/demo-v1/graphsentinel-demo.mp4 (4:34) |
 | Live UI | https://graphsentinel-hhgoa.trilogy-1207.chatgpt.site (currently owner-private; judges need public access) |
 | LLM model used | OpenAI GPT-5 mini for evidence synthesis; deterministic Python policy engine for actions |
 | Agent framework used | Custom Python GraphRAG orchestrator with TigerGraph MCP/RESTPP and GSQL |
