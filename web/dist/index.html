@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GraphSentinel — explainable, policy-constrained fraud investigations on TigerGraph.">
+  <title>GraphSentinel · Fraud Investigation Console</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffb15b'/%3E%3Cpath d='M18 42V23l14-8 14 8v16l-14 10z' fill='none' stroke='%23070d18' stroke-width='5'/%3E%3Ccircle cx='32' cy='31' r='5' fill='%23070d18'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="GraphSentinel home"><span class="brand-mark">G</span><span>GraphSentinel</span></a>
+    <div class="run-state"><span class="pulse"></span>TigerGraph evidence graph online</div>
+    <button id="theme" class="icon-button" aria-label="Toggle contrast">◐</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AGENTIC FRAUD INVESTIGATION · HHGOA 2026</p>
+        <h1>Every decision leaves<br><em>an evidence trail.</em></h1>
+        <p class="lede">Graph traversal finds the relationships. Retrieval supplies institutional memory. A deterministic policy layer keeps the agent accountable.</p>
+      </div>
+      <div class="hero-score" aria-label="Case outcomes summary">
+        <div><strong id="fraudCount">10</strong><span>fraud</span></div>
+        <div><strong id="legitCount">10</strong><span>legitimate</span></div>
+        <div><strong id="caseCount">20</strong><span>investigated</span></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="queue">
+        <div class="queue-head">
+          <div><span class="label">CASE QUEUE</span><span id="queueCount" class="count">20</span></div>
+          <input id="search" type="search" placeholder="Search case, card, pattern" aria-label="Search cases">
+          <div class="filters" role="group" aria-label="Filter cases">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="fraud">Fraud</button>
+            <button class="filter" data-filter="legitimate">Cleared</button>
+          </div>
+        </div>
+        <div id="caseList" class="case-list" aria-live="polite"></div>
+      </aside>
+
+      <article id="caseDetail" class="detail" aria-live="polite">
+        <div class="loading">Loading evidence graph…</div>
+      </article>
+    </section>
+
+    <section class="architecture">
+      <div>
+        <p class="eyebrow">HOW THE AGENT REASONS</p>
+        <h2>Graph first. Policy last.<br>Evidence throughout.</h2>
+      </div>
+      <div class="pipeline" aria-label="Investigation pipeline">
+        <div><b>01</b><span>Trigger</span><small>risk · report · analyst</small></div>
+        <i>→</i>
+        <div><b>02</b><span>Traverse</span><small>card · device · region</small></div>
+        <i>→</i>
+        <div><b>03</b><span>Retrieve</span><small>closed-case memory</small></div>
+        <i>→</i>
+        <div><b>04</b><span>Decide</span><small>R1–R10 policy gate</small></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Built by HackerHouse Rockers</span><span>TigerGraph × HHGoa 2026</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
