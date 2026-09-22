@@ -13,7 +13,7 @@ Review every field before using it. The official form does not permit resubmissi
 | 20 files confirmation | Yes |
 | Demo video | https://github.com/gowtham66867/graphsentinel-hhgoa-2026/releases/download/demo-v1/graphsentinel-demo.mp4 (4:34) |
 | Live UI | https://graphsentinel-hhgoa.trilogy-1207.chatgpt.site (currently owner-private; judges need public access) |
-| LLM model used | OpenAI GPT-5 mini for evidence synthesis; deterministic Python policy engine for actions |
+| LLM model used | OpenAI GPT-5 for evidence synthesis; deterministic Python policy engine for actions |
 | Agent framework used | Custom Python GraphRAG orchestrator with TigerGraph MCP/RESTPP and GSQL |
 | Social post URLs | **Publish the prepared post and paste URL** |
 | Technical blog | https://github.com/gowtham66867/graphsentinel-hhgoa-2026/blob/main/docs/technical-blog.md |
