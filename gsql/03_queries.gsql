@@ -47,23 +47,4 @@ CREATE QUERY similar_closed_cases(STRING card_id, STRING pattern, UINT limit = 5
   PRINT Cases;
 }
 
-CREATE QUERY write_investigation_case(
-  STRING case_id,
-  STRING card_id,
-  STRING status,
-  STRING verdict,
-  DOUBLE fraud_probability,
-  STRING pattern,
-  DOUBLE exposure_usd,
-  STRING summary,
-  STRING action_json,
-  DATETIME updated_at
-) FOR GRAPH FraudGraph SYNTAX v2 {
-  INSERT INTO InvestigationCase VALUES(
-    case_id, status, verdict, fraud_probability, pattern,
-    exposure_usd, summary, action_json, updated_at
-  );
-  INSERT INTO CASE_ON_CARD VALUES(case_id InvestigationCase, card_id Card);
-  PRINT case_id AS graph_case_id;
-}
-
+INSTALL QUERY card_window, device_ring, customer_baseline, similar_closed_cases

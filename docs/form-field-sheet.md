@@ -4,20 +4,20 @@ Review every field before using it. The official form does not permit resubmissi
 
 | Field | Value |
 |---|---|
-| Email | `gowtham66866@gmail.com` (from the signed-in form; confirm before transmission) |
+| Email | `gowtham66866@gmail.com` |
 | Team name | HackerHouse Rockers |
 | Devfolio ID of Team Lead | gowtham66867 |
-| Team size | **Needs confirmation** (currently appears to be 1) |
-| Lead: Name, Email, Phone | **Needs phone confirmation**; proposed name/email: `Gowtham Ramachandra, gowtham66866@gmail.com, …` |
+| Team size | 1 |
+| Lead: Name, Email, Phone | `Gowtham Ramachandra, gowtham66866@gmail.com, +91988423443` |
 | Public GitHub repo | https://github.com/gowtham66867/graphsentinel-hhgoa-2026 |
 | 20 files confirmation | Yes |
 | Demo video | https://github.com/gowtham66867/graphsentinel-hhgoa-2026/releases/download/demo-v1/graphsentinel-demo.mp4 (4:34) |
 | Live UI | https://graphsentinel-hhgoa.trilogy-1207.chatgpt.site (currently owner-private; judges need public access) |
 | LLM model used | OpenAI GPT-5 for evidence synthesis; deterministic Python policy engine for actions |
 | Agent framework used | Custom Python GraphRAG orchestrator with TigerGraph MCP/RESTPP and GSQL |
-| Social post URLs | **Publish the prepared post and paste URL** |
+| Social post URLs | https://www.linkedin.com/feed/update/urn:li:activity:7508411801924132864/ |
 | Technical blog | https://github.com/gowtham66867/graphsentinel-hhgoa-2026/blob/main/docs/technical-blog.md |
-| Deployment | **Needs connected TigerGraph deployment**; choose Savanna or Community Edition after deployment |
+| Deployment | Community Edition (TigerGraph 4.2.5; 20/20 investigation cases verified in graph) |
 
 ## TigerGraph experience answer
 

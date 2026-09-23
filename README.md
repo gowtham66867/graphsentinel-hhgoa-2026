@@ -45,6 +45,7 @@ python -m http.server 4173 --directory web/dist
 gsql gsql/01_schema.gsql
 gsql gsql/02_load.gsql
 gsql gsql/03_queries.gsql
+gsql gsql/04_writeback.gsql
 
 gsql -g FraudGraph 'RUN LOADING JOB load_transactions USING transactions_file="data/graph_transactions.csv"'
 gsql -g FraudGraph 'RUN LOADING JOB load_closed_cases USING cases_file="data/closed_cases_history.csv"'
@@ -57,9 +58,11 @@ cp .env.example .env
 export TIGERGRAPH_HOST='https://YOUR_HOST'
 export TIGERGRAPH_TOKEN='YOUR_SECRET'
 export TIGERGRAPH_GRAPH='FraudGraph'
+
+PYTHONPATH=src python scripts/write_cases.py
 ```
 
-The four core queries are `card_window`, `device_ring`, `customer_baseline`, and `similar_closed_cases`. `write_investigation_case` persists the final decision back into the graph so it becomes memory for later investigations. The checked-in JSON answers were generated offline and therefore truthfully retain `written_to_graph: false`; after connecting a TigerGraph deployment, use `TigerGraphClient.write_case(...)` and update those two provenance fields before the final scored submission.
+The four core queries are `card_window`, `device_ring`, `customer_baseline`, and `similar_closed_cases`. `write_investigation_case` persists the final decision back into the graph so it becomes memory for later investigations. `scripts/write_cases.py` updates `written_to_graph` and `graph_case_id` only after each successful TigerGraph response.
 
 ## Decision flow
 

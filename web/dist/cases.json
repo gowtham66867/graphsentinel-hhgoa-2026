@@ -35,8 +35,8 @@
         "CC-1066"
       ],
       "summary": "Transaction 3514030 was investigated rather than classified from its 0.61 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-001"
     },
     "evidence_requests": [
       {
@@ -129,8 +129,8 @@
         "CC-4160"
       ],
       "summary": "Transaction 3478782 was investigated rather than classified from its 0.79 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-002"
     },
     "evidence_requests": [
       {
@@ -234,8 +234,8 @@
         "CC-2935"
       ],
       "summary": "GraphSentinel identified out of region use involving 1 transaction(s) and $49.00 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-003"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -328,8 +328,8 @@
         "CC-2121"
       ],
       "summary": "GraphSentinel identified card not present new device involving 1 transaction(s) and $128.33 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-004"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -412,8 +412,8 @@
         "CC-2717"
       ],
       "summary": "Transaction 3523199 was investigated rather than classified from its 0.54 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-005"
     },
     "evidence_requests": [
       {
@@ -520,8 +520,8 @@
       ],
       "similar_prior_cases": [],
       "summary": "GraphSentinel identified undocumented involving 4 transaction(s) and $1906.07 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-006"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -614,8 +614,8 @@
         "CC-4455"
       ],
       "summary": "Transaction 3514948 was investigated rather than classified from its 0.87 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-007"
     },
     "evidence_requests": [
       {
@@ -723,8 +723,8 @@
         "CC-4485"
       ],
       "summary": "GraphSentinel identified card not present fraud involving 3 transaction(s) and $166.97 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-008"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -825,8 +825,8 @@
       ],
       "similar_prior_cases": [],
       "summary": "GraphSentinel identified card not present fraud involving 1 transaction(s) and $30.02 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-009"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -908,8 +908,8 @@
         "CC-0873"
       ],
       "summary": "Transaction 3506725 was investigated rather than classified from its 0.90 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-010"
     },
     "evidence_requests": [
       {
@@ -1013,8 +1013,8 @@
         "CC-3905"
       ],
       "summary": "GraphSentinel identified card not present new device involving 1 transaction(s) and $131.30 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-011"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -1096,8 +1096,8 @@
         "CC-0003"
       ],
       "summary": "Transaction 3553342 was investigated rather than classified from its 0.55 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-012"
     },
     "evidence_requests": [
       {
@@ -1190,8 +1190,8 @@
         "CC-3761"
       ],
       "summary": "Transaction 3526826 was investigated rather than classified from its 0.76 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-013"
     },
     "evidence_requests": [
       {
@@ -1314,8 +1314,8 @@
         "CC-2649"
       ],
       "summary": "GraphSentinel identified undocumented involving 3 transaction(s) and $439.61 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-014"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -1429,8 +1429,8 @@
         "CC-3886"
       ],
       "summary": "GraphSentinel identified card not present new device involving 1 transaction(s) and $599.94 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-015"
     },
     "evidence_requests": [
       {
@@ -1554,8 +1554,8 @@
         "CC-5057"
       ],
       "summary": "GraphSentinel identified card not present new device involving 1 transaction(s) and $59.67 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-016"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -1657,8 +1657,8 @@
         "CC-1383"
       ],
       "summary": "Transaction 3450629 was investigated rather than classified from its 0.57 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-017"
     },
     "evidence_requests": [
       {
@@ -1762,8 +1762,8 @@
         "CC-4721"
       ],
       "summary": "GraphSentinel identified out of region use involving 1 transaction(s) and $39.08 exposure. The conclusion combines account baseline, episode structure, prior-case memory, and customer denial when present. Actions are policy-routed and do not rely on the model score as a verdict.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-018"
     },
     "evidence_requests": [],
     "next_best_actions": {
@@ -1845,8 +1845,8 @@
         "CC-2087"
       ],
       "summary": "Transaction 3503878 was investigated rather than classified from its 0.90 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-019"
     },
     "evidence_requests": [
       {
@@ -1940,8 +1940,8 @@
         "CC-2447"
       ],
       "summary": "Transaction 3509359 was investigated rather than classified from its 0.52 risk score. Historical behavior and a simulated cardholder verification resolved the alert as legitimate; no exposure remains.",
-      "written_to_graph": false,
-      "graph_case_id": ""
+      "written_to_graph": true,
+      "graph_case_id": "HHG-020"
     },
     "evidence_requests": [
       {

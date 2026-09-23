@@ -29,7 +29,9 @@ class TigerGraphClient:
         return payload
 
     def query(self, name: str, **params) -> dict:
-        query = urllib.parse.urlencode(params)
+        # RESTPP treats a literal "+" as data in query parameters, so encode
+        # spaces as %20 instead of HTML form-style plus signs.
+        query = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
         return self._request(f"/restpp/query/{self.graph}/{name}?{query}")
 
     def health(self) -> dict:
