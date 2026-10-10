@@ -1,16 +1,17 @@
 # GraphSentinel
 
-GraphSentinel is an evidence-first agentic fraud investigator built for the TigerGraph × HHGoa 2026 challenge. It traverses cards, transactions, device fingerprints, regions, and 5,565 closed cases; retrieves comparable investigations; then sends facts through a deterministic implementation of policy rules R1–R10. The LLM explains evidence—it never chooses an unapproved action or invents an approval route.
+GraphSentinel is an evidence-first, voice-led fraud investigation workbench. Its case exports connect cards, transactions, device profiles, regions, and 5,565 historical closed cases. A deterministic policy layer applies rules R1–R10; the voice workflow explains, challenges, and compares recorded findings without executing protected actions. This local dashboard currently reads exported cases, not live TigerGraph query results or a live LLM.
 
-**Team:** HackerHouse Rockers · **Lead:** Gowtham Ramachandra · **Devfolio:** `gowtham66867`
+**Project team:** HackerHouse Rockers · **Lead:** Gowtham Ramachandra
 
-## What is in the submission
+## What is in this repository
 
 - `cases/`: all 20 scored answer files, named `HHG-001.json` through `HHG-020.json`
 - `gsql/`: TigerGraph schema, loading jobs, graph investigations, and case-memory writeback
 - `src/fraud_agent/`: policy, schema validator, CLI, and RESTPP client
 - `scripts/`: deterministic data preparation and answer generation
 - `web/dist/`: responsive investigation console (no build step)
+- `web/dist/voice-core.mjs`: bounded voice-command investigator with evidence citations, adversarial review, case comparison, and a structural case harness
 - `docs/`: architecture, demo narration, technical blog, and submission checklist
 
 The answer set is deliberately balanced: 10 fraud and 10 legitimate outcomes. Every transaction, card, device, and prior-case identifier used by an answer is grounded in the supplied benchmark. Simulated replies are always labeled in `evidence_requests`, per the challenge policy.
@@ -28,6 +29,7 @@ python scripts/prepare_data.py
 python scripts/generate_cases.py
 graphsentinel validate --cases cases
 pytest -q
+node --test tests/voice-core.test.mjs
 ```
 
 Start the analyst console:
@@ -36,6 +38,10 @@ Start the analyst console:
 python -m http.server 4173 --directory web/dist
 # open http://localhost:4173
 ```
+
+The **voice-ready investigation** panel accepts prompts dictated through Wispr Flow into its text field (or typed prompts). Try “Why was HHG-014 marked fraud?”, “Challenge the verdict for HHG-006”, “Compare HHG-014 and HHG-006”, and “Run checks for HHG-014”. It resolves a bounded intent, reads only the loaded case records, and shows recorded evidence references and approval routes. Browser read-aloud is optional. The panel does not execute card blocks or SAR filings, and it does not call TigerGraph live; the displayed cases are scored-record exports. A typed or pasted prompt is not evidence that Wispr Flow was used.
+
+The workflow now carries context across follow-up questions, shows recorded graph paths and a visible investigation trace, asks for clarification on unsupported commands, and refuses operational recommendations when evidence or approval routes fail browser-side validation. See the [voice-led walkthrough](docs/voice-demo.md).
 
 ## Install the graph
 
@@ -92,12 +98,23 @@ Risk score is never treated as ground truth. A weak single signal triggers verif
 python scripts/generate_cases.py
 PYTHONPATH=src python -m fraud_agent.cli validate
 pytest -q
+node --test tests/voice-core.test.mjs
+PYTHONPATH=src python -m evals.run
+PYTHONPATH=src python -m scripts.export_eval
+PYTHONPATH=src python -m fraud_agent.graph_probe
 ```
 
 Generation is deterministic. The validator checks required fields, enums, legitimate-case exposure, approval routes, and SAR/action agreement. `cases/` is the submission source of truth.
+
+The browser harness checks four structural invariants on every loaded case. It does **not** measure the correctness of a fraud verdict or execute the test plan from the separate SpecForge Voice project. The voice-command layer brings its evidence-first, adversarial-review, and evaluation concepts into GraphSentinel while keeping the TigerGraph answer set unchanged.
+
+`evals.run` independently checks 20 case exports against IDs and amounts in the supplied transaction graph export, closed-case IDs, customer-claim references, and policy routes. Its pass rate measures **grounding and safety only**, not agreement with the hidden scoring key. `graph_probe` attempts one read-only installed query when `TIGERGRAPH_HOST` is configured; it retries transient failures at most once and otherwise reports the offline fallback. In the current local session, no TigerGraph host or OpenAI API key is configured. The connected OpenAI documentation and Wispr meeting-note tools supported development, but neither is a live model or dictation-control integration in this app.
 
 ## Privacy and security
 
 Secrets are loaded from environment variables and excluded from Git. The UI contains challenge data only. L1/L2 actions remain recommendations: only `auto` actions can be executed by the agent.
 
 See [architecture](docs/architecture.md), [demo script](docs/demo-script.md), and [technical blog draft](docs/technical-blog.md).
+
+For a local Cloud Run-compatible container and the required billing gate before
+any Google Cloud deployment, see [Cloud Run deployment](docs/cloud-run-deployment.md).
