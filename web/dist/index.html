@@ -62,7 +62,8 @@
           <textarea id="voicePrompt" rows="2" placeholder="Try: Why was HHG-014 marked fraud?" aria-describedby="voiceHelp"></textarea>
           <button id="voiceRun" type="button">Investigate ↗</button>
         </div>
-        <p id="voiceHelp" class="voice-help">Wispr Flow can dictate into this field. Try “show the graph path for case fourteen.” The app cannot verify whether an entry was spoken.</p>
+        <p id="voiceHelp" class="voice-help">Click the request field, hold Fn + Space in Wispr Flow, speak, then release. Try “compare this case with case six.” The app cannot verify whether an entry was spoken.</p>
+        <label class="voice-audio-option" for="voiceAutoRead"><input id="voiceAutoRead" type="checkbox"> Read each answer aloud (browser voice, off by default)</label>
         <div class="voice-examples" aria-label="Example requests">
           <button type="button" data-prompt="Why was HHG-014 marked fraud?">Explain HHG-014</button>
           <button type="button" data-prompt="Challenge the verdict for HHG-006">Challenge HHG-006</button>

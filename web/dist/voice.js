@@ -4,6 +4,7 @@ const prompt = document.querySelector("#voicePrompt");
 const result = document.querySelector("#voiceResult");
 const history = document.querySelector("#voiceHistory");
 const runButton = document.querySelector("#voiceRun");
+const autoRead = document.querySelector("#voiceAutoRead");
 let records = [];
 let contextIds = [];
 let turns = [];
@@ -14,6 +15,15 @@ function element(tag, className, content) {
   if (className) node.className = className;
   node.textContent = content;
   return node;
+}
+
+function speakAnswer(answer) {
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
+  window.speechSynthesis.cancel();
+  const excerpt = answer.facts.slice(0, 2).map(fact => fact.text).join(" ");
+  const utterance = new SpeechSynthesisUtterance(`${answer.title}. ${answer.body} ${excerpt}`);
+  utterance.rate = 1.04;
+  window.speechSynthesis.speak(utterance);
 }
 
 function render(answer) {
@@ -69,21 +79,18 @@ function render(answer) {
   if ("speechSynthesis" in window && answer.facts.length) {
     const speak = element("button", "speak-button", "▶ Read answer aloud");
     speak.type = "button";
-    speak.addEventListener("click", () => {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(`${answer.title}. ${answer.body} ${answer.facts.map(fact => fact.text).join(" ")}`);
-      utterance.rate = 1.04;
-      window.speechSynthesis.speak(utterance);
-    });
+    speak.addEventListener("click", () => speakAnswer(answer));
     result.append(speak);
   }
 }
 
 function run() {
   if (!records.length) return;
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   const selected = document.querySelector(".case-row.active")?.dataset.id || new URLSearchParams(location.search).get("case") || "HHG-014";
   const answer = investigate(prompt.value, selected, records, contextIds);
   render(answer);
+  if (autoRead.checked && answer.trace?.length) speakAnswer(answer);
   if (answer.trace?.length) {
     contextIds = answer.ids;
     turns = [...turns, {question: prompt.value.trim(), result: answer.title}].slice(-4);

@@ -1,18 +1,18 @@
 // Bounded, deterministic investigator. Case records are data, never instructions.
-const ID_PATTERN = /\bHHG[-\s]?(\d{1,3})\b/gi;
-const SPOKEN_NUMBER = {zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20};
-const SPOKEN_PATTERN = /\b(?:h\s*h\s*g|hhg|case)\s+(?:(?:number|no)\s+)?((?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty)(?:[\s-]+(?:zero|one|two|three|four|five|six|seven|eight|nine))?(?:[\s-]+(?:zero|one|two|three|four|five|six|seven|eight|nine))?)\b/gi;
+const SPOKEN_NUMBER = {zero: 0, oh: 0, o: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20};
+const CASE_PATTERN = /\b(?:h\s*h\s*g|hhg|case)[\s:-]*(?:(?:number|no)\s+)?((?:\d{1,3}|zero|oh|o|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty)(?:[\s-]+(?:\d|zero|oh|o|one|two|three|four|five|six|seven|eight|nine)){0,2})\b/gi;
 const routeLabel = route => route === "auto" ? "automatic" : `${route} approval required`;
 const citation = evidence => `${evidence.source} · ${evidence.ref}`;
 const label = value => String(value || "undocumented").replaceAll("_", " ");
 const money = amount => new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"}).format(amount || 0);
 
 function requestedIds(text) {
-  const matches = [...text.matchAll(ID_PATTERN)].map(match => ({index: match.index, value: Number(match[1])}));
-  for (const match of text.matchAll(SPOKEN_PATTERN)) {
+  const matches = [];
+  for (const match of text.matchAll(CASE_PATTERN)) {
     const words = match[1].toLowerCase().split(/[\s-]+/);
-    const value = words.length === 1 ? SPOKEN_NUMBER[words[0]] : Number(words.map(word => SPOKEN_NUMBER[word]).join(""));
-    if (Number.isInteger(value)) matches.push({index: match.index, value});
+    const digits = words.map(word => /^\d+$/.test(word) ? word : String(SPOKEN_NUMBER[word]));
+    const value = Number(digits.join(""));
+    if (Number.isInteger(value) && value >= 0 && value <= 999) matches.push({index: match.index, value});
   }
   return [...new Set(matches.sort((a, b) => a.index - b.index).map(match => `HHG-${String(match.value).padStart(3, "0")}`))];
 }
@@ -26,6 +26,10 @@ export function parseRequest(input, selectedId, records, contextIds = []) {
   const unknown = ids.find(id => !known.has(id));
   if (unknown) return {intent: "help", ids, error: `${unknown} is not in the loaded case pack.`};
   const lower = text.toLowerCase();
+  if (ids.length === 1 && /\b(compare|versus|vs\.?|difference|contrast)\b/.test(lower) && /\b(this|that|it|selected|current)\b/.test(lower)) {
+    const reference = contextIds[0] || selectedId;
+    if (reference && known.has(reference) && reference !== ids[0]) ids.unshift(reference);
+  }
   if (!ids.length && contextIds.length > 1 && /\b(second|other|latter)\b/.test(lower)) ids.push(contextIds[1]);
   else if (!ids.length && contextIds.length && /\b(first|former|that|it|this)\b/.test(lower)) ids.push(contextIds[0]);
   if (!ids.length && selectedId && known.has(selectedId)) ids.push(selectedId);
