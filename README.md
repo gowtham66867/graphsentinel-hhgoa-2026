@@ -6,7 +6,7 @@ GraphSentinel is an evidence-first, voice-led fraud investigation workbench. Its
 
 ## Demo and Wispr Flow evidence
 
-[Watch the 2-minute-20-second GraphSentinel walkthrough](https://github.com/gowtham66867/graphsentinel-hhgoa-2026/releases/download/yapmaxxing-demo-2026-10-11/graphsentinel-wispr-walkthrough.mp4) · [Open the live build](https://graphsentinel-564262191703.asia-south1.run.app/)
+[Watch the 6-minute-04-second judge walkthrough](https://github.com/gowtham66867/graphsentinel-hhgoa-2026/releases/download/hhgoa-final-demo-2026-10-31/graphsentinel-final-6m04.mp4) · [Watch the 2-minute-20-second voice-workflow chapter](https://github.com/gowtham66867/graphsentinel-hhgoa-2026/releases/download/yapmaxxing-demo-2026-10-11/graphsentinel-wispr-walkthrough.mp4) · [Open the live build](https://graphsentinel-564262191703.asia-south1.run.app/)
 
 Wispr Notetaker captured the voice-led planning discussion and iteration requests that shaped this build, including case-aware follow-ups, adversarial challenges, and a visible evaluation harness. The meeting transcript is private because it also contains unrelated personal information. The video demonstrates the finished product with **typed example queries**, not live Wispr dictation; the product's text field is compatible with Wispr Flow dictation, and its optional browser read-aloud is separate from Wispr.
 
